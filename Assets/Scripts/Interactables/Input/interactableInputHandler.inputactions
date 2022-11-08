@@ -1,0 +1,44 @@
+{
+    "name": "interactableInputHandler",
+    "maps": [
+        {
+            "name": "interactables",
+            "id": "43d5a6b7-3a62-40fe-9f51-d55789bb0363",
+            "actions": [
+                {
+                    "name": "interact",
+                    "type": "Button",
+                    "id": "21562db1-590d-44fb-bda1-2dc0f9c2708b",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "f9d24776-bc1b-4446-9d9c-28da354fe83d",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "interact",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "93eef17c-8103-4dee-a232-f84d43ceea9b",
+                    "path": "<Gamepad>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "interact",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}

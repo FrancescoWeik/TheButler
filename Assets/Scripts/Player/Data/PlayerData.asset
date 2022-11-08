@@ -1,0 +1,53 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c23f23f93cee66d4ab7a3eb8172eded1, type: 3}
+  m_Name: PlayerData
+  m_EditorClassIdentifier: 
+  maxHealth: 6
+  waitAfterHurtTime: 1
+  gravityScale: 5
+  deathSound: {fileID: 8300000, guid: 6a78b508a5f344caf90ef54788c6d8b0, type: 3}
+  equipSound: {fileID: 0}
+  grassSound: {fileID: 8300000, guid: 27e58179389da43abaf2aa220d014dc1, type: 3}
+  hurtSound: {fileID: 8300000, guid: 33b69245045964ec1a92cd67194a85d9, type: 3}
+  hurtSounds:
+  - {fileID: 8300000, guid: 7784b97f137244a999da3068a3bd0e9a, type: 3}
+  - {fileID: 8300000, guid: 7784b97f137244a999da3068a3bd0e9a, type: 3}
+  - {fileID: 8300000, guid: 7784b97f137244a999da3068a3bd0e9a, type: 3}
+  holsterSound: {fileID: 8300000, guid: 0e64e9b9e4daa4805ba66582f4fb6059, type: 3}
+  jumpSound: {fileID: 8300000, guid: b547b9b6dbd2748d09af2a0f424d3143, type: 3}
+  landSound: {fileID: 8300000, guid: 801d5a8d18edb4d4a9c59d836b5bd581, type: 3}
+  poundSound: {fileID: 8300000, guid: 030c66bb75f554234962323482a876cb, type: 3}
+  punchSound: {fileID: 8300000, guid: 89147b5dd2e08974a92c507b73be05d9, type: 3}
+  poundActivationSounds:
+  - {fileID: 8300000, guid: 40b837875a63d406e8174d3d4c61c86e, type: 3}
+  outOfAmmoSound: {fileID: 0}
+  stepSound: {fileID: 8300000, guid: 27e58179389da43abaf2aa220d014dc1, type: 3}
+  movementVelocity: 15
+  jumpVelocity: 25
+  amountOfJumps: 0
+  coyoteTime: 0.1
+  variableJumpHeightMultiplier: 0.5
+  glideVelocity: 6
+  groundCheckRadius: 0.4
+  characterSwapCheckRadius: 15
+  whatIsGround:
+    serializedVersion: 2
+    m_Bits: 8
+  whatIsPlayer:
+    serializedVersion: 2
+    m_Bits: 64
+  waitBetweenAttacksTime: 0.4
+  movementAttackSpeed: 0
+  hurtLaunchPower: {x: 20, y: 10}
+  launchRecovery: 0
+  spriteBlinkingMiniDuration: 0.1
