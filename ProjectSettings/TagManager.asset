@@ -19,8 +19,8 @@ TagManager:
   - Projectile
   - Button
   - FrontOfChef
-  - 
-  - 
+  - Item
+  - ForTrigger
   - 
   - 
   - 
@@ -55,4 +55,7 @@ TagManager:
     locked: 0
   - name: Ground
     uniqueID: 219853085
+    locked: 0
+  - name: UI
+    uniqueID: 3171239867
     locked: 0

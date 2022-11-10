@@ -6,11 +6,16 @@ using Cinemachine;
 
 public class GameManager : MonoBehaviour
 {
+    public static GameManager Instance;
     public GameObject currentPlayer;
     GameObject[] possibleCharacters;
     [SerializeField] GameObject chooseCharactersMenu;
     [SerializeField] private CinemachineVirtualCamera virtualCamera;
     //Menu chooseCharacters...
+
+    private void Awake(){
+        Instance = this;
+    }
 
     // Start is called before the first frame update
     void Start()

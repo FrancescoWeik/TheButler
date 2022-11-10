@@ -17,7 +17,7 @@ public class insertPw : MonoBehaviour
 
     public void Unpause(){
         gameManager.EnableSameCharacter();
-        Cursor.visible = false;
+        //Cursor.visible = false;
         gameObject.SetActive(false);
         Time.timeScale = 1f;
     }

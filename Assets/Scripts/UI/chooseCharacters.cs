@@ -30,7 +30,7 @@ public class chooseCharacters : MonoBehaviour
 
     public void Unpause(){
         gameManager.EnableSameCharacter();
-        Cursor.visible = false;
+        //Cursor.visible = false;
         gameObject.SetActive(false);
         Time.timeScale = 1f;
     }
@@ -38,7 +38,7 @@ public class chooseCharacters : MonoBehaviour
     public void ChooseCharacter(GameObject character){
         if(characters.Contains(character)){
             gameManager.EnableNewCharacter(character);
-            Cursor.visible = false;
+            //Cursor.visible = false;
             DisableAllButtons();
             gameObject.SetActive(false);
             Time.timeScale = 1f;

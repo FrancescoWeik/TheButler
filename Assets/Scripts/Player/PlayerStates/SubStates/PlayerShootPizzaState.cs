@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerShootPizzaState : PlayerAbilityState
 {
     private float velocityToSet;
-    private bool setVelocity;
+    //private bool setVelocity;
     protected GameObject projectile;
     protected Transform attackPosition;
     //protected Projectile projectileScript;
@@ -48,7 +48,7 @@ public class PlayerShootPizzaState : PlayerAbilityState
     public void SetPlayerVelocity(float velocity){
         player.SetVelocityX(velocity*player.facingDirection);
         velocityToSet = velocity;
-        setVelocity = true;
+        //setVelocity = true;
     }
 
     public void ShootPizza(){

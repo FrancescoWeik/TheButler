@@ -40,7 +40,7 @@ public class Player : MonoBehaviour
     public PlayerInAirState inAirState{get; private set;}
     public PlayerLandState landState{get; private set;}
 
-    [SerializeField] private PlayerData playerData;
+    [SerializeField] protected PlayerData playerData;
 
     #endregion
     #region Components
@@ -75,7 +75,7 @@ public class Player : MonoBehaviour
     private Shader shaderGUIWhite;
     private Shader shaderSpritesDefault;    
     public Vector2 currentVelocity{get; private set;}
-    public int facingDirection{get; private set;}
+    public int facingDirection{get; protected set;}
     private bool startBlinking = false;
     private bool normalSprite = true; //needed to check whether to blink or not
 
@@ -86,7 +86,7 @@ public class Player : MonoBehaviour
     [SerializeField] private GameObject deathMenu;
     #endregion
     #region Unity Callback Functions
-    private void Awake(){
+    protected virtual void Awake(){
         stateMachine = new PlayerStateMachine();
 
         idleState = new PlayerIdleState(this, stateMachine, playerData, "idle");
@@ -94,11 +94,12 @@ public class Player : MonoBehaviour
         jumpState = new PlayerJumpState(this, stateMachine, playerData, "inAir"); //blendTree for jump
         inAirState = new PlayerInAirState(this, stateMachine, playerData, "inAir"); //blendTree for jump
         landState = new PlayerLandState(this, stateMachine, playerData, "land");
+
         shootState = new PlayerShootPizzaState(this, stateMachine, playerData, "shoot", attackRangePosition);
         prepareShootingState = new PlayerPrepareShootingState(this,stateMachine,playerData,"prepareShoot", attackRangePosition);
     }
 
-    private void Start(){
+    protected virtual void Start(){
         anim = GetComponent<Animator>();
         audioSource = GetComponent<AudioSource>();
         inputHandler = GetComponent<PlayerInputHandler>();
@@ -230,6 +231,10 @@ public class Player : MonoBehaviour
         Collider2D[] players = Physics2D.OverlapCircleAll(characterSwapCheck.position, playerData.characterSwapCheckRadius, playerData.whatIsPlayer);
         gameManager.OpenCharactersMenu(players);
         //Debug.Log(players);
+    }
+
+    public virtual void ReceiveItem(Item item){
+
     }
 
     //private 
