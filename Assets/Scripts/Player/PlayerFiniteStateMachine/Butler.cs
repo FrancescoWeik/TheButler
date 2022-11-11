@@ -8,7 +8,9 @@ public class Butler : Player, IDropHandler
 {
     public PlayerPerformAnimationState performAnimation{get; private set;}
     private bool alreadyCutEye;
+    public DialogueTrigger trigger;
     [SerializeField] Item eyeBall;
+    public Dialogue dialogue;
 
 
     protected override void Awake(){
@@ -34,10 +36,25 @@ public class Butler : Player, IDropHandler
                         alreadyCutEye = true;
                     }else{
                         //Mostra dialogo con ("No please, not again.");
+                        dialogue.name = "Butler";
+                        dialogue.sentences = new string[1];
+                        dialogue.sentences[0] = "Please no, not again.";
+                        trigger.TriggerDialogue(dialogue);
                         Debug.Log("Not Again");
                     }
                     break;
-                default: Debug.Log("what do I have to do with that one?"); break;
+                case "EyeBall":
+                    dialogue.name = "Butler";
+                    dialogue.sentences = new string[1];
+                    dialogue.sentences[0] = "I think I cut it for a reason, I don't want to put it back!";
+                    trigger.TriggerDialogue(dialogue);
+                    break;
+                default: 
+                    dialogue.name = "Butler";
+                    dialogue.sentences = new string[1];
+                    dialogue.sentences[0] = "what do I have to do with that one?";
+                    trigger.TriggerDialogue(dialogue);
+                    Debug.Log("what do I have to do with that one?"); break;
             }
         }
 

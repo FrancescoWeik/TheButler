@@ -30,7 +30,7 @@ MonoBehaviour:
   stepSound: {fileID: 0}
   movementVelocity: 15
   jumpVelocity: 30
-  amountOfJumps: 1
+  amountOfJumps: 0
   coyoteTime: 0.1
   variableJumpHeightMultiplier: 0.5
   glideVelocity: 5
