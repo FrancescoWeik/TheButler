@@ -8,9 +8,13 @@ public class Butler : Player, IDropHandler
 {
     public PlayerPerformAnimationState performAnimation{get; private set;}
     private bool alreadyCutEye;
+    private bool alreadyMechEye;
     public DialogueTrigger trigger;
     [SerializeField] Item eyeBall;
     public Dialogue dialogue;
+    [SerializeField] protected RuntimeAnimatorController noEyeAnimator;
+    [SerializeField] protected RuntimeAnimatorController mechEyeController;
+
 
 
     protected override void Awake(){
@@ -32,6 +36,7 @@ public class Butler : Player, IDropHandler
             switch(text){
                 case "Knife": 
                     if(!alreadyCutEye){
+                        anim.runtimeAnimatorController = (RuntimeAnimatorController)noEyeAnimator;
                         ChangeToCutEyeState();
                         alreadyCutEye = true;
                     }else{
@@ -48,6 +53,16 @@ public class Butler : Player, IDropHandler
                     dialogue.sentences = new string[1];
                     dialogue.sentences[0] = "I think I cut it for a reason, I don't want to put it back!";
                     trigger.TriggerDialogue(dialogue);
+                    break;
+                case "MechEye":
+                    if(!alreadyMechEye){
+                        anim.runtimeAnimatorController = (RuntimeAnimatorController)mechEyeController;
+                        InventoryManager.Instance.mechEye = true;
+                        alreadyMechEye = true;
+                        //now show password...?
+                    }else{
+
+                    }
                     break;
                 default: 
                     dialogue.name = "Butler";

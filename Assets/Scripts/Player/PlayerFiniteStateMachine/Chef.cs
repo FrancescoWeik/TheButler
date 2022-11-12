@@ -6,6 +6,10 @@ using UnityEngine.UI;
 
 public class Chef : Player, IDropHandler{
     [SerializeField] private GameObject checkTrigger;
+
+    public DialogueTrigger trigger;
+    public Dialogue dialogue;
+
     protected override void Update(){
         if(Controlling && checkTrigger.active){
             //disable checkPlayerTrigger
@@ -27,7 +31,15 @@ public class Chef : Player, IDropHandler{
         Debug.Log("Dropping...");
         if(eventData.pointerDrag!=null){
             var itemName = eventData.pointerDrag.transform.Find("ItemName").GetComponent<Text>();
-            Debug.Log(itemName.text);
+            string text = itemName.text;
+            switch(text){
+                default: 
+                    dialogue.name = "Chef";
+                    dialogue.sentences = new string[1];
+                    dialogue.sentences[0] = "As long as I have pizza I don't need anything else";
+                    trigger.TriggerDialogue(dialogue);
+                    Debug.Log("As long as I have pizza I don't need anything else"); break;
+            }
         }
 
     }

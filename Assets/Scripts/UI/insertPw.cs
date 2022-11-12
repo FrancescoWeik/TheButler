@@ -7,7 +7,7 @@ public class insertPw : MonoBehaviour
 {
     public GameManager gameManager;
     [SerializeField] InputField input;
-    [SerializeField] private int rightPw;
+    [SerializeField] private string rightPw;
 
     void OnEnable()
     {
@@ -23,7 +23,7 @@ public class insertPw : MonoBehaviour
     }
 
     public void CheckPwCorrectness(){
-        int value = int.Parse(input.text);
+        string value = input.text;//int.Parse(input.text);
         Debug.Log(value);
         if(value == rightPw){
             Debug.Log("WOAH! OPEN DOOR");

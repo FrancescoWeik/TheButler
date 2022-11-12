@@ -45,7 +45,7 @@ public class Player : MonoBehaviour
     #endregion
     #region Components
 
-    public Animator anim{get; private set;}
+    public Animator anim{get; protected set;}
     public AudioSource audioSource{get; private set;}
     public PlayerInputHandler inputHandler{get; private set;}
     public Rigidbody2D rb {get; private set;}

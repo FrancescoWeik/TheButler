@@ -6,9 +6,9 @@ using UnityEngine;
 public class DoorPwInteractable : Interactable
 {
     [SerializeField] GameObject input;
-    [SerializeField] private int rightPw;
+    [SerializeField] private string rightPw;
     [SerializeField] private GameManager gameManager;
-    public int userPW;
+    public string userPW;
 
     public override void ActivateItem(){
         base.ActivateItem();

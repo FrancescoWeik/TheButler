@@ -10,6 +10,9 @@ public class NonActiveBodyGuard :  MonoBehaviour, IDropHandler
     [SerializeField] private GameObject activeUIBodyGuard;
     [SerializeField] private GameObject mechEye;
 
+    public DialogueTrigger trigger;
+    public Dialogue dialogue;
+
     public void OnDrop(PointerEventData eventData){
         Debug.Log("Dropping...");
         if(eventData.pointerDrag!=null){
@@ -18,7 +21,12 @@ public class NonActiveBodyGuard :  MonoBehaviour, IDropHandler
             //Debug.Log(text);
             switch(text){
                 case "EyeBall": GiveEyeState(); break;
-                default: Debug.Log("what do I have to do with that one?"); break;
+                default: 
+                    dialogue.name = "Bodyguard";
+                    dialogue.sentences = new string[1];
+                    dialogue.sentences[0] = "What do I have to do with that one?";
+                    trigger.TriggerDialogue(dialogue);
+                    Debug.Log("what do I have to do with that one?"); break;
             }
         }
 
