@@ -16,5 +16,7 @@ public class Item : ScriptableObject
         Knife,
         EyeBall,
         FuturisticEye,
+        Camera,
+        PizzaBook,
     }
 }

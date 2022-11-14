@@ -36,7 +36,7 @@ public class Chef : Player, IDropHandler{
                 default: 
                     dialogue.name = "Chef";
                     dialogue.sentences = new string[1];
-                    dialogue.sentences[0] = "As long as I have pizza I don't need anything else";
+                    dialogue.sentences[0] = "Mamma Mia";//"As long as I have pizza I don't need anything else";
                     trigger.TriggerDialogue(dialogue);
                     Debug.Log("As long as I have pizza I don't need anything else"); break;
             }

@@ -16,6 +16,10 @@ public class InventoryManager : MonoBehaviour
     private void Awake(){
         Instance = this;
     }
+
+    private void Start(){
+        ListItems();
+    }
     
     public void Add(Item item){
         Items.Add(item);

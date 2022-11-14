@@ -38,7 +38,7 @@ MonoBehaviour:
   coyoteTime: 0.1
   variableJumpHeightMultiplier: 0.5
   glideVelocity: 6
-  groundCheckRadius: 0.4
+  groundCheckRadius: 0.76
   characterSwapCheckRadius: 15
   whatIsGround:
     serializedVersion: 2
@@ -48,6 +48,11 @@ MonoBehaviour:
     m_Bits: 64
   waitBetweenAttacksTime: 0.4
   movementAttackSpeed: 0
+  projectileSpeed: 15
+  projectile: {fileID: 0}
+  point: {fileID: 0}
+  numberOfPoints: 15
+  spaceBetweenPoints: 0.025
   hurtLaunchPower: {x: 20, y: 10}
   launchRecovery: 0
   spriteBlinkingMiniDuration: 0.1
