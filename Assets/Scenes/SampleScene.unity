@@ -1006,13 +1006,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76264d5bfdf30a34ea10ae3d60091c7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activeBodyGuard: {fileID: 1444853148}
-  activeUIBodyGuard: {fileID: 1911929155}
+  activeCharacter: {fileID: 0}
+  activeUICharacter: {fileID: 0}
   mechEye: {fileID: 2147360058}
-  trigger: {fileID: 313112786}
-  dialogue:
+  dialogueIfCorrect:
     name: 
     sentences: []
+  dialogueIfWrong:
+    name: 
+    sentences: []
+  itemNeeded: {fileID: 0}
+  isBodyGuard: 0
+  trigger: {fileID: 313112786}
 --- !u!70 &313112785
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -2837,7 +2842,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &921347055
 Transform:
   m_ObjectHideFlags: 0
@@ -5011,6 +5016,7 @@ MonoBehaviour:
   currentPlayer: {fileID: 2134981723}
   chooseCharactersMenu: {fileID: 1368614913}
   virtualCamera: {fileID: 680229094}
+  controllingCharacter: {fileID: 0}
 --- !u!4 &1625736830
 Transform:
   m_ObjectHideFlags: 0

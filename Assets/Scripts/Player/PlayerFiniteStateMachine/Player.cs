@@ -39,8 +39,11 @@ public class Player : MonoBehaviour
      
     public PlayerInAirState inAirState{get; private set;}
     public PlayerLandState landState{get; private set;}
+    public PlayerTerrorState terrorState{get; private set;}
 
     [SerializeField] protected PlayerData playerData;
+    public int id;
+    public string name;
 
     #endregion
     #region Components
@@ -48,7 +51,7 @@ public class Player : MonoBehaviour
     public Animator anim{get; protected set;}
     public AudioSource audioSource{get; private set;}
     public PlayerInputHandler inputHandler{get; private set;}
-    public Rigidbody2D rb {get; private set;}
+    public Rigidbody2D rb {get; protected set;}
     public PlayerInventory inventory {get; private set;}
     [SerializeField] private ParticleSystem jumpParticles;
     public SpriteRenderer spriteRenderer{get; private set;}
@@ -81,6 +84,7 @@ public class Player : MonoBehaviour
 
     private Vector2 workspace;
 
+    [SerializeField] protected GameObject terrorObject;
     #endregion
     #region UI Objects
     [SerializeField] private GameObject deathMenu;
@@ -94,6 +98,7 @@ public class Player : MonoBehaviour
         jumpState = new PlayerJumpState(this, stateMachine, playerData, "inAir"); //blendTree for jump
         inAirState = new PlayerInAirState(this, stateMachine, playerData, "inAir"); //blendTree for jump
         landState = new PlayerLandState(this, stateMachine, playerData, "land");
+        terrorState = new PlayerTerrorState(this, stateMachine, playerData, "move");
 
         shootState = new PlayerShootPizzaState(this, stateMachine, playerData, "shoot", attackRangePosition);
         prepareShootingState = new PlayerPrepareShootingState(this,stateMachine,playerData,"prepareShoot", attackRangePosition);
@@ -106,9 +111,13 @@ public class Player : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         inventory = GetComponent<PlayerInventory>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        //Debug.Log("AOISHGSIUAAPI");
+        //Debug.Log(rb);
 
         shaderGUIWhite = Shader.Find("GUI/Text Shader");
         shaderSpritesDefault = Shader.Find("Sprites/Default"); // or whatever sprite shader is being used
+
+        id = playerData.id;
 
         trackAttackTime = Time.time;
         lastHurtTime = 0f;
@@ -117,7 +126,7 @@ public class Player : MonoBehaviour
 
         facingDirection = 1; //always start facing the right;
         
-
+        terrorObject.SetActive(false);
         stateMachine.Initialize(idleState);
     }
 
@@ -162,6 +171,14 @@ public class Player : MonoBehaviour
         spriteRenderer.material.shader = shaderSpritesDefault;
         spriteRenderer.color = Color.white;
         normalSprite = true;
+    }
+
+    public void SetTerrorActive(){
+        terrorObject.SetActive(true);
+    }
+
+    public void SetTerrorNonActive(){
+        terrorObject.SetActive(false);
     }
 
     #endregion
@@ -229,7 +246,7 @@ public class Player : MonoBehaviour
         //OpenSwapMenu(); //this is a ui with buttons that the user can click with the mouse or keyboard in order to change character.
         Debug.Log("Here I should be able to change the player that I'm controlling");
         Collider2D[] players = Physics2D.OverlapCircleAll(characterSwapCheck.position, playerData.characterSwapCheckRadius, playerData.whatIsPlayer);
-        gameManager.OpenCharactersMenu(players);
+        GameManager.Instance.OpenCharactersMenu(players);
         //Debug.Log(players);
     }
 
@@ -237,11 +254,16 @@ public class Player : MonoBehaviour
 
     }
 
+    public virtual void ChangeToTerrorState(){
+        stateMachine.ChangeState(terrorState);
+    }
+
     //private 
 
     #endregion
     #region Damage and Animation Callback Functions
     public virtual void DamageHop(float velocityX, float velocityY){
+        Debug.Log("HOP");
         workspace.Set(velocityX,velocityY);
         rb.velocity = workspace;
         currentVelocity = workspace;

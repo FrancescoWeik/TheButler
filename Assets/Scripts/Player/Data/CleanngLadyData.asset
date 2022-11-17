@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c23f23f93cee66d4ab7a3eb8172eded1, type: 3}
   m_Name: CleanngLadyData
   m_EditorClassIdentifier: 
+  id: 2
   maxHealth: 6
   waitAfterHurtTime: 0.35
   gravityScale: 5

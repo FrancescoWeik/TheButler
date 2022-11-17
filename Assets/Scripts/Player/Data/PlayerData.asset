@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c23f23f93cee66d4ab7a3eb8172eded1, type: 3}
   m_Name: PlayerData
   m_EditorClassIdentifier: 
+  id: 0
+  currentController: {fileID: 9100000, guid: 78fd7de5349178c4bac736d78bb87ac4, type: 2}
   maxHealth: 6
   waitAfterHurtTime: 1
   gravityScale: 5
@@ -56,3 +58,5 @@ MonoBehaviour:
   hurtLaunchPower: {x: 20, y: 10}
   launchRecovery: 0
   spriteBlinkingMiniDuration: 0.1
+  terrorVelocity: 20
+  terrorTime: 0.7

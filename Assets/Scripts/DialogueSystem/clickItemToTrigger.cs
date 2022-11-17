@@ -17,6 +17,7 @@ public class clickItemToTrigger : MonoBehaviour, IPointerEnterHandler, IPointerE
 
     public void OnPointerDown(PointerEventData eventData){
         if(eventData.button == PointerEventData.InputButton.Left){
+            Debug.Log(eventData);
             trigger.TriggerDialogue();
         }
     }

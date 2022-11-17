@@ -23,7 +23,7 @@ public class CameraEffects : MonoBehaviour
         screenYDefault = cinemachineFramingTransposer.m_ScreenX;
         
         //Inform the player what CameraEffect it should be controlling, no matter what scene we are on.
-        Player.Instance.cameraEffects = this;
+        //Player.Instance.cameraEffects = this;
         virtualCamera = GetComponent<CinemachineVirtualCamera>();
         multiChannelPerlin = virtualCamera.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
 

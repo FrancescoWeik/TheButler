@@ -18,5 +18,8 @@ public class Item : ScriptableObject
         FuturisticEye,
         Camera,
         PizzaBook,
+        Steak,
+        Rope,
+        Foto,
     }
 }

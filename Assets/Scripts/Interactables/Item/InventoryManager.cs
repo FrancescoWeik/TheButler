@@ -6,6 +6,8 @@ using UnityEngine.UI;
 public class InventoryManager : MonoBehaviour
 {
     public static InventoryManager Instance;
+    public bool pickedSteakUp;
+    public bool pickedRope;
     public List<Item> Items = new List<Item>();
 
     public bool mechEye = false; //set to true by butler so that I can see the pw on the walls.
@@ -13,16 +15,30 @@ public class InventoryManager : MonoBehaviour
     public Transform ItemContent; //where items are filled
     public GameObject InventoryItem;//the prefab of the item 
 
-    private void Awake(){
+    /*private void Awake(){
         Instance = this;
-    }
+    }*/
 
     private void Start(){
+        Debug.Log(Instance);
+        if(Instance!=null){
+            Destroy(this.gameObject);
+            return;
+        }
+
+        Instance = this;
+        GameObject.DontDestroyOnLoad(this.gameObject);
         ListItems();
     }
     
     public void Add(Item item){
         Items.Add(item);
+        if(item.id == 6){
+            Debug.Log("picked up steak");
+            pickedSteakUp = true;
+        }else if(item.id==7){
+            pickedRope = true;
+        }
 
         //Add To Inventory....
         /*GameObject obj = Instantiate(InventoryItem,ItemContent);
@@ -36,6 +52,7 @@ public class InventoryManager : MonoBehaviour
 
     public void Remove(Item item){
         Items.Remove(item);
+        ListItems();
     }
 
     //List all items inside the inventory

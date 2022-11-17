@@ -13,12 +13,13 @@ public class openingDoor : MonoBehaviour
 
     private void Start(){
         alreadyMoved = false;
-        move = false;
+        //move = false;
     }
 
     private void Update(){
+        //Debug.Log(move);
         if(move){
-            //Debug.Log("opening...");
+            Debug.Log("opening...");
             alreadyMoved = true;
             transform.position = Vector3.MoveTowards(transform.position, temp, speed);
         }
@@ -32,6 +33,7 @@ public class openingDoor : MonoBehaviour
             //wall.transform.position = temp;
             //wall.transform.position = Vector3.MoveTowards(wall.transform.position, temp, speed)
             move = true;
+            Debug.Log(move);
         }
     }
 }

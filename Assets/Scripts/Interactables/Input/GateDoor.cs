@@ -8,6 +8,7 @@ public class GateDoor : MonoBehaviour
     public string labelText;
     public InteractInputHandler inputHandler{get; private set;}
     [SerializeField] private GameObject door;
+    [SerializeField] public bool opened;
     // Start is called before the first frame update
     private void Start(){
         hasCollided=false;
@@ -45,12 +46,14 @@ public class GateDoor : MonoBehaviour
         hasCollided = false;
     }
 
-    private void OpenDoor(){
+    public void OpenDoor(){
         //call open door
+        opened = true;
         door.GetComponent<openingDoor>().OpenDoor();
     }
 
     public void MessageActivateItem(){
+        opened = true;
         door.GetComponent<openingDoor>().OpenDoor();
     }
 }

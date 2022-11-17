@@ -22,6 +22,11 @@ public class Butler : Player, IDropHandler
         performAnimation = new PlayerPerformAnimationState((Player)this, stateMachine, playerData, "performAnim", true, eyeBall);
     }
 
+    protected override void Start(){
+        base.Start();
+        anim.runtimeAnimatorController = (RuntimeAnimatorController)playerData.currentController;
+    }
+
     public void ChangeToCutEyeState(){
         stateMachine.ChangeState(performAnimation);
     }
@@ -37,6 +42,7 @@ public class Butler : Player, IDropHandler
                 case "Knife": 
                     if(!alreadyCutEye){
                         anim.runtimeAnimatorController = (RuntimeAnimatorController)noEyeAnimator;
+                        playerData.currentController = (RuntimeAnimatorController)noEyeAnimator;
                         ChangeToCutEyeState();
                         alreadyCutEye = true;
                     }else{
@@ -57,6 +63,7 @@ public class Butler : Player, IDropHandler
                 case "MechEye":
                     if(!alreadyMechEye){
                         anim.runtimeAnimatorController = (RuntimeAnimatorController)mechEyeController;
+                        playerData.currentController = (RuntimeAnimatorController)mechEyeController;
                         InventoryManager.Instance.mechEye = true;
                         alreadyMechEye = true;
                         //now show password...?

@@ -6,6 +6,9 @@ using UnityEngine.SceneManagement;
 [CreateAssetMenu(fileName = "newPlayerData", menuName = "Data/PlayerData/BaseData")]
 public class PlayerData : ScriptableObject
 {
+    public int id; //which character it is
+    public RuntimeAnimatorController currentController;
+
     [Header("PlayerStats")]
     public int maxHealth = 6;
     public float waitAfterHurtTime = 0.35f;
@@ -65,4 +68,8 @@ public class PlayerData : ScriptableObject
     public float launchRecovery = 3f; //How slow should recovering from the launch be? (Higher the number, the longer the launch will last)
     public float spriteBlinkingMiniDuration = 0.1f; //time between each blink
     //public float spriteBlinkingTotalDuration = 1.0f; //total duration of blinking when hurt
+
+    [Header("TerrorState")]
+    public float terrorVelocity = 20.0f;
+    public float terrorTime = 3.0f;
 }

@@ -26,6 +26,7 @@ public class NonActiveCharacter :  MonoBehaviour, IDropHandler
             Debug.Log(itemNeeded.itemName);
             if(text == itemNeeded.itemName){
                 trigger.TriggerDialogue(dialogueIfCorrect);
+                InventoryManager.Instance.Remove(itemNeeded);
                 GiveItemState();
             }else{
                 trigger.TriggerDialogue(dialogueIfWrong);
@@ -44,7 +45,7 @@ public class NonActiveCharacter :  MonoBehaviour, IDropHandler
             }*/
     }
 
-    public void GiveItemState(){
+    public virtual void GiveItemState(){
         Debug.Log("Entered Function");
         if(isBodyGuard){
             mechEye.SetActive(false);
@@ -53,7 +54,7 @@ public class NonActiveCharacter :  MonoBehaviour, IDropHandler
             gameObject.SetActive(false);
         }else{
             activeCharacter.SetActive(true);
-            activeUICharacter.SetActive(true);
+            //activeUICharacter.SetActive(true);
             gameObject.SetActive(false);
         }
     }
