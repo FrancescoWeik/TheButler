@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class HouseScene : SceneLoader
 {
-    [SerializeField] private HouseSceneData data;
+    [SerializeField] private SceneData data;
     [SerializeField] private WindowUI windowUI;
     [SerializeField] private GameObject rope;
 
@@ -20,6 +20,7 @@ public class HouseScene : SceneLoader
     }
 
     public override void SaveSceneState(){
+        base.SaveSceneState();
         if(windowUI.alreadyGiven){
             data.gaveFoto = true;
         }
@@ -27,7 +28,6 @@ public class HouseScene : SceneLoader
         if(InventoryManager.Instance.pickedRope){
             data.ropeObtained = true;
         }
-        base.SaveSceneState();
     }
     
 }

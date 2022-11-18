@@ -8,6 +8,7 @@ public class PlayerData : ScriptableObject
 {
     public int id; //which character it is
     public RuntimeAnimatorController currentController;
+    public bool ControllingData=false;
 
     [Header("PlayerStats")]
     public int maxHealth = 6;

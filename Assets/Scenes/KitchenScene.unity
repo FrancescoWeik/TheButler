@@ -948,7 +948,7 @@ MonoBehaviour:
   door: {fileID: 40586130}
   knife: {fileID: 319968609}
   hitButton: {fileID: 2124356258}
-  data: {fileID: 11400000, guid: 66ec437a94aba8c4898a0a325b45bd44, type: 2}
+  data: {fileID: 11400000, guid: 9d7cf15e90f242446a909796a579f579, type: 2}
   Chef: {fileID: 1862988336}
   fullChef: {fileID: 781331262}
   foodReleaser: {fileID: 1867571073}
@@ -2653,7 +2653,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2867043065590288016, guid: d889e57cbbcf84b468d1e5cf375e563c, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2867043065590288017, guid: d889e57cbbcf84b468d1e5cf375e563c, type: 3}
       propertyPath: m_RootOrder

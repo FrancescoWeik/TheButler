@@ -181,6 +181,10 @@ public class Player : MonoBehaviour
         terrorObject.SetActive(false);
     }
 
+    public void setControllingData(bool control){
+        playerData.ControllingData = control;
+    }
+
     #endregion
     #region Check Functions
     public void CheckIfShouldFlip(int xInput){

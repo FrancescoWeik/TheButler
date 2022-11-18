@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: CleanngLadyData
   m_EditorClassIdentifier: 
   id: 2
+  currentController: {fileID: 0}
+  ControllingData: 0
   maxHealth: 6
   waitAfterHurtTime: 0.35
   gravityScale: 5
@@ -29,20 +31,20 @@ MonoBehaviour:
   poundActivationSounds: []
   outOfAmmoSound: {fileID: 0}
   stepSound: {fileID: 0}
-  movementVelocity: 10
+  movementVelocity: 20
   jumpVelocity: 15
-  amountOfJumps: 1
+  amountOfJumps: 0
   coyoteTime: 0.1
   variableJumpHeightMultiplier: 0.5
   glideVelocity: 5
-  groundCheckRadius: 0.3
-  characterSwapCheckRadius: 1
+  groundCheckRadius: 0.76
+  characterSwapCheckRadius: 15
   whatIsGround:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8
   whatIsPlayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   waitBetweenAttacksTime: 0.35
   movementAttackSpeed: 0
   projectileSpeed: 15
@@ -53,3 +55,5 @@ MonoBehaviour:
   hurtLaunchPower: {x: 0, y: 0}
   launchRecovery: 3
   spriteBlinkingMiniDuration: 0.1
+  terrorVelocity: 20
+  terrorTime: 0.7

@@ -11,10 +11,10 @@ public class Chef : Player, IDropHandler{
     public Dialogue dialogue;
 
     protected override void Update(){
-        if(Controlling && checkTrigger.active){
+        if(playerData.ControllingData && checkTrigger.active){
             //disable checkPlayerTrigger
             checkTrigger.SetActive(false);
-        }else if(!Controlling && !checkTrigger.active){
+        }else if(!playerData.ControllingData && !checkTrigger.active){
             //enableCheck
             checkTrigger.SetActive(true);
         }

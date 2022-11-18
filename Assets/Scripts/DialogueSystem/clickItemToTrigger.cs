@@ -15,7 +15,7 @@ public class clickItemToTrigger : MonoBehaviour, IPointerEnterHandler, IPointerE
         Debug.Log("Exit called");
     }
 
-    public void OnPointerDown(PointerEventData eventData){
+    public virtual void OnPointerDown(PointerEventData eventData){
         if(eventData.button == PointerEventData.InputButton.Left){
             Debug.Log(eventData);
             trigger.TriggerDialogue();

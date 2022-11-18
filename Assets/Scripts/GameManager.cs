@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
     public List<playerPositionsScenes> playersPositions;
     public static GameManager Instance;
     public GameObject currentPlayer;
-    private int currentPlayerId;
+    public int currentPlayerId;
     public List<GameObject> characters; //Prefabs of the characters that can be used.
     [SerializeField] GameObject chooseCharactersMenu;
     [SerializeField] private CinemachineVirtualCamera virtualCamera;
@@ -58,7 +58,10 @@ public class GameManager : MonoBehaviour
                 InsertButlerInstead();
             }
             controllingCharacter = Instantiate(characters[currentPlayerId], leftSpawnPosition.position, Quaternion.identity) as GameObject;
+            Debug.Log(controllingCharacter);
             controllingCharacter.name = characters[currentPlayerId].name;
+            controllingCharacter.GetComponent<Player>().setControllingData(true);
+            Debug.Log( controllingCharacter.name);
         }else if(triggerName == "leftTrigger"){
             rightSpawnPosition = GameObject.Find("rightSpawnPosition").transform;
             //controllingCharacter = PrefabUtility.InstantiatePrefab(characters[currentPlayerId] as GameObject) as GameObject;
@@ -68,7 +71,10 @@ public class GameManager : MonoBehaviour
                 InsertButlerInstead();
             }
             controllingCharacter =  Instantiate(characters[currentPlayerId], rightSpawnPosition.position, Quaternion.identity) as GameObject;
+            Debug.Log(controllingCharacter);
             controllingCharacter.name = characters[currentPlayerId].name;
+            Debug.Log( controllingCharacter.name);
+            controllingCharacter.GetComponent<Player>().setControllingData(true);
         }
         currentPlayer = controllingCharacter;
         Debug.Log(currentPlayer);
@@ -86,17 +92,20 @@ public class GameManager : MonoBehaviour
         controllingCharacter.GetComponent<PlayerInput>().enabled = false;
         controllingCharacter.GetComponent<Player>().SetVelocityX(0f);
         controllingCharacter.GetComponent<Player>().Controlling = false;
+        controllingCharacter.GetComponent<Player>().setControllingData(false);
     }
 
     public void EnableNewCharacter(GameObject newPlayer){
         controllingCharacter.GetComponent<Player>().HideCircle();
         //currentPlayer.GetComponent<Player>().enabled=false;
         controllingCharacter.GetComponent<Player>().Controlling = false;
+        controllingCharacter.GetComponent<Player>().setControllingData(false);
         
         controllingCharacter = newPlayer;
         controllingCharacter.GetComponent<PlayerInput>().enabled = true;
         //currentPlayer.GetComponent<Player>().enabled = true;
         controllingCharacter.GetComponent<Player>().Controlling = true;
+        controllingCharacter.GetComponent<Player>().setControllingData(true);
         currentPlayerId =  controllingCharacter.GetComponent<Player>().id;
         virtualCamera.Follow = controllingCharacter.transform;
 
@@ -107,6 +116,7 @@ public class GameManager : MonoBehaviour
     public void EnableSameCharacter(){
         controllingCharacter.GetComponent<PlayerInput>().enabled = true;
         controllingCharacter.GetComponent<Player>().Controlling = true;
+        controllingCharacter.GetComponent<Player>().setControllingData(true);
     }
 
     public void OpenCharactersMenu(Collider2D[] players){
@@ -200,6 +210,7 @@ public class GameManager : MonoBehaviour
                 characterToCreate.name = playersPositions[i].name;
                 characterToCreate.GetComponent<PlayerInput>().enabled = false;
                 characterToCreate.GetComponent<Player>().Controlling = false;
+                characterToCreate.GetComponent<Player>().setControllingData(false);
                 characterToCreate.GetComponent<Player>().SetVelocityX(0f);
             }else if(playersPositions[i].playerID != controllingCharacter.GetComponent<Player>().id && SceneManager.GetActiveScene().name!=playersPositions[i].sceneName){
                 Debug.Log("Quello salvato: " + playersPositions[i].playerID + "L'altro: " + controllingCharacter.GetComponent<Player>().id);

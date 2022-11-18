@@ -12,3 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8fbefef1b74c1a14888477a44fb630e2, type: 3}
   m_Name: GardenData
   m_EditorClassIdentifier: 
+  alreadyFed: 0
+  ropeOnWindow: 0

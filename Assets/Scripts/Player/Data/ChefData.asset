@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: ChefData
   m_EditorClassIdentifier: 
   id: 1
+  currentController: {fileID: 0}
+  ControllingData: 0
   maxHealth: 6
   waitAfterHurtTime: 1
   gravityScale: 5
@@ -53,3 +55,5 @@ MonoBehaviour:
   hurtLaunchPower: {x: 0, y: 0}
   launchRecovery: 0
   spriteBlinkingMiniDuration: 0.1
+  terrorVelocity: 20
+  terrorTime: 3

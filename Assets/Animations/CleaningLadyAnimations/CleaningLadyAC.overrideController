@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: CleaningLadyAC
+  m_Controller: {fileID: 9100000, guid: 78fd7de5349178c4bac736d78bb87ac4, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: ad447e2ec8e0ee44cbdb9b5724fafa8d, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: ff01a2874e8e9664cb6ed49da6bd8562, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 319736196695c7945893f0b0591ed4a3, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: ff01a2874e8e9664cb6ed49da6bd8562, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 5b987ac9247580e439bbf4c4144632e4, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 6e38147d758f704408607fb50f44c4dc, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 41aaca65d372d1949b1825cf0921f837, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 6e38147d758f704408607fb50f44c4dc, type: 2}

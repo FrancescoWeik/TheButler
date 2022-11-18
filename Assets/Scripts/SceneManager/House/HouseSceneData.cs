@@ -6,6 +6,6 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "newSceneData", menuName = "Data/SceneData/HouseSceneData")]
 public class HouseSceneData : SceneData
 {
-    public bool gaveFoto = false;
-    public bool ropeObtained = false;
+    /*public bool gaveFoto = false;
+    public bool ropeObtained = false;*/
 }

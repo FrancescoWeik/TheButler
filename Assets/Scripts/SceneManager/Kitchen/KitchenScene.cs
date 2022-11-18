@@ -7,7 +7,7 @@ public class KitchenScene : SceneLoader
     [SerializeField] private GateDoor door;
     [SerializeField] private GameObject knife;
     [SerializeField] private ButtonHit hitButton;
-    [SerializeField] private KitchenData data;
+    [SerializeField] private SceneData data;
     [SerializeField] private GameObject Chef;
     [SerializeField] private GameObject fullChef;
     [SerializeField] private ReleaseFood foodReleaser;

@@ -633,12 +633,12 @@ GameObject:
   - component: {fileID: 2867043064261529638}
   - component: {fileID: 2867043064261529657}
   m_Layer: 5
-  m_Name: BodyGuardButton
+  m_Name: CleaningLadyButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2867043064261529656
 RectTransform:
   m_ObjectHideFlags: 0
@@ -687,7 +687,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: d68158a1b213d0845b293c7c173af4e3, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6a71652789b737d4aabd0046f2986039, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -719,9 +719,9 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 1, g: 0, b: 0.15399837, a: 1}
-    m_PressedColor: {r: 1, g: 0, b: 0.15294118, a: 1}
-    m_SelectedColor: {r: 1, g: 0, b: 0.15294118, a: 1}
+    m_HighlightedColor: {r: 0.03404235, g: 0.8018868, b: 0.7724267, a: 1}
+    m_PressedColor: {r: 0.03529412, g: 0.8000001, b: 0.7725491, a: 1}
+    m_SelectedColor: {r: 0.03529412, g: 0.8000001, b: 0.7725491, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.40392157}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -2557,6 +2557,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3bf059a483bc3c341810042f2c398383, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pickedSteakUp: 0
+  pickedRope: 0
   Items:
   - {fileID: 11400000, guid: c6ff3d9fea021ca40a5b5b091c66b634, type: 2}
   mechEye: 0
@@ -2919,10 +2921,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30e9241d01eaca54588b5c629905184e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playersPositions: []
   currentPlayer: {fileID: 0}
   characters:
   - {fileID: 4085298922911146886, guid: 3cf4a2ef8344fa648bc3a1a8b8ada2f9, type: 3}
   - {fileID: 693371256523578053, guid: 21e6b642371ab6b4d8bcb3cba5a08bb4, type: 3}
+  - {fileID: 2688183540943889750, guid: f07ec7d834c392f43b476823ac9daf6c, type: 3}
   chooseCharactersMenu: {fileID: 2867043065434719569}
   virtualCamera: {fileID: 947507433509307474}
   controllingCharacter: {fileID: 4085298922911146886, guid: 3cf4a2ef8344fa648bc3a1a8b8ada2f9, type: 3}

@@ -12,7 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62cfc07baea50fc45b81828c9eb9e389, type: 3}
   m_Name: KitchenData
   m_EditorClassIdentifier: 
+  cleaningLadyActive: 0
   gotKnife: 0
   ovenOpened: 0
   chefActive: 0
   foodObtained: 0
+  alreadyFed: 0
+  ropeOnWindow: 0
+  gaveFoto: 0
+  ropeObtained: 0

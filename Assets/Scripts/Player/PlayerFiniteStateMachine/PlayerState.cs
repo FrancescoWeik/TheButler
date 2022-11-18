@@ -42,7 +42,7 @@ public class PlayerState
 
     public virtual void DoChecks(){
         //check if players inside the swap character circle...
-        if(player.CheckSwap() && player.Controlling){
+        if(player.CheckSwap() && playerData.ControllingData){
             //Debug.Log("Show circle");
             player.ShowCircle();
         }else{
