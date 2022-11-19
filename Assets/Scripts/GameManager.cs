@@ -19,17 +19,14 @@ public class GameManager : MonoBehaviour
     public GameObject controllingCharacter;
 
     //used for knowing where to spawn the character;
-    public Transform leftSpawnPosition;
-    public Transform rightSpawnPosition;
+    public Transform spawnPosition;
     public string triggerName;
 
-    /*private void Awake(){
-        Instance = this;
-    }*/
 
     // Start is called before the first frame update
     void Start()
     {
+        Debug.Log("ENTERING GAME MANAGER START");
         playersPositions = new List<playerPositionsScenes>();
         if(Instance!=null){
             Destroy(this.gameObject);
@@ -39,10 +36,9 @@ public class GameManager : MonoBehaviour
         Instance = this;
         GameObject.DontDestroyOnLoad(this.gameObject);
         //Instantiate(CameraAll,spawnPosition.position, Quaternion.identity);
-        leftSpawnPosition = GameObject.Find("leftSpawnPosition").transform;
-        rightSpawnPosition = GameObject.Find("rightSpawnPosition").transform;
+        spawnPosition = GameObject.Find("leftSpawnPosition").transform;
         //PrefabUtility.InstantiatePrefab(characters[currentPlayerId] as GameObject) as GameObject;
-        controllingCharacter = Instantiate(characters[currentPlayerId], leftSpawnPosition.position, Quaternion.identity) as GameObject;
+        controllingCharacter = Instantiate(characters[currentPlayerId], spawnPosition.position, Quaternion.identity) as GameObject;
         controllingCharacter.name = characters[currentPlayerId].name;
         virtualCamera.Follow = controllingCharacter.transform;
     }
@@ -50,31 +46,14 @@ public class GameManager : MonoBehaviour
     void OnLevelWasLoaded(){
         PrintAllCharacters();
         if(triggerName == "rightTrigger"){
-            leftSpawnPosition = GameObject.Find("leftSpawnPosition").transform;
-            //Check if character that I want to create is already in the scene, if not then do nothing, if he is then delete him and use the current player.
-            //controllingCharacter = PrefabUtility.InstantiatePrefab(characters[currentPlayerId] as GameObject) as GameObject;
-            if(SceneContainsCurrent()){
-                //inserisci butler al posto dell'oggetto trovato.
-                InsertButlerInstead();
-            }
-            controllingCharacter = Instantiate(characters[currentPlayerId], leftSpawnPosition.position, Quaternion.identity) as GameObject;
-            Debug.Log(controllingCharacter);
-            controllingCharacter.name = characters[currentPlayerId].name;
-            controllingCharacter.GetComponent<Player>().setControllingData(true);
-            Debug.Log( controllingCharacter.name);
+            spawnPosition = GameObject.Find("leftSpawnPosition").transform;
+            SpawnCharacter(spawnPosition);
         }else if(triggerName == "leftTrigger"){
-            rightSpawnPosition = GameObject.Find("rightSpawnPosition").transform;
-            //controllingCharacter = PrefabUtility.InstantiatePrefab(characters[currentPlayerId] as GameObject) as GameObject;
-            //Check if character that I want to create is already in the scene, if not then do nothing, if he is then delete him and use the current player.
-            if(SceneContainsCurrent()){
-                //inserisci butler al posto dell'oggetto trovato.
-                InsertButlerInstead();
-            }
-            controllingCharacter =  Instantiate(characters[currentPlayerId], rightSpawnPosition.position, Quaternion.identity) as GameObject;
-            Debug.Log(controllingCharacter);
-            controllingCharacter.name = characters[currentPlayerId].name;
-            Debug.Log( controllingCharacter.name);
-            controllingCharacter.GetComponent<Player>().setControllingData(true);
+            spawnPosition = GameObject.Find("rightSpawnPosition").transform;
+            SpawnCharacter(spawnPosition);
+        }else if(triggerName == "otherTrigger"){
+            spawnPosition = GameObject.Find("otherSpawn").transform;
+            SpawnCharacter(spawnPosition);
         }
         currentPlayer = controllingCharacter;
         Debug.Log(currentPlayer);
@@ -222,4 +201,21 @@ public class GameManager : MonoBehaviour
             }
         }
     }
+
+    public void SpawnCharacter(Transform position){
+        Debug.Log("HOW MANY TIMES AM I CALLED");
+        Debug.Log(GameManager.Instance);
+        //Check if character that I want to create is already in the scene, if not then do nothing, if he is then delete him and use the current player.
+        //controllingCharacter = PrefabUtility.InstantiatePrefab(characters[currentPlayerId] as GameObject) as GameObject;
+        if(SceneContainsCurrent()){
+            //inserisci butler al posto dell'oggetto trovato.
+            InsertButlerInstead();
+        }
+        controllingCharacter = Instantiate(characters[currentPlayerId], position.position, Quaternion.identity) as GameObject;
+        Debug.Log(controllingCharacter);
+        controllingCharacter.name = characters[currentPlayerId].name;
+        controllingCharacter.GetComponent<Player>().setControllingData(true);
+        Debug.Log( controllingCharacter.name);
+    }
+    
 }

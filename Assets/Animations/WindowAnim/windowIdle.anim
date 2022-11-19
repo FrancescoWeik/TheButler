@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: DogIdleCalm
+  m_Name: windowIdle
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -20,15 +20,7 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: 21300000, guid: 4265d2fa19aece24d8cd29b08cac6a92, type: 3}
-    - time: 0.083333336
-      value: {fileID: 21300000, guid: 37d214acd278e244d9a7b70899736654, type: 3}
-    - time: 0.16666667
-      value: {fileID: 21300000, guid: f14d9dc6cf6f5ae42911badc5f9c717d, type: 3}
-    - time: 0.25
-      value: {fileID: 21300000, guid: c313e8eb6edb59347a7ed9aeb059966c, type: 3}
-    - time: 0.33333334
-      value: {fileID: 21300000, guid: 14eb4412b57ebe744a082858cd884c99, type: 3}
+      value: {fileID: 21300000, guid: 368fe84f5dfd90341a10c41abbdda50d, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -48,17 +40,13 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: 21300000, guid: 4265d2fa19aece24d8cd29b08cac6a92, type: 3}
-    - {fileID: 21300000, guid: 37d214acd278e244d9a7b70899736654, type: 3}
-    - {fileID: 21300000, guid: f14d9dc6cf6f5ae42911badc5f9c717d, type: 3}
-    - {fileID: 21300000, guid: c313e8eb6edb59347a7ed9aeb059966c, type: 3}
-    - {fileID: 21300000, guid: 14eb4412b57ebe744a082858cd884c99, type: 3}
+    - {fileID: 21300000, guid: 368fe84f5dfd90341a10c41abbdda50d, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.375
+    m_StopTime: 0.041666668
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0

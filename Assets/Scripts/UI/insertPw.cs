@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class insertPw : MonoBehaviour
 {
-    public GameManager gameManager;
     [SerializeField] InputField input;
     [SerializeField] private string rightPw;
 
@@ -16,7 +15,7 @@ public class insertPw : MonoBehaviour
     }
 
     public void Unpause(){
-        gameManager.EnableSameCharacter();
+        GameManager.Instance.EnableSameCharacter();
         //Cursor.visible = false;
         gameObject.SetActive(false);
         Time.timeScale = 1f;
@@ -31,7 +30,7 @@ public class insertPw : MonoBehaviour
             Debug.Log("DOOR CLOSED");
         }
         //Call game manager change scene;
-        gameManager.EnableSameCharacter();
+        GameManager.Instance.EnableSameCharacter();
         Cursor.visible = false;
         gameObject.SetActive(false);
         Time.timeScale = 1f;
