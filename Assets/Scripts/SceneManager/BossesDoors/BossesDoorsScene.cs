@@ -18,9 +18,12 @@ public class BossesDoorsScene : SceneLoader
         }
         if(GameManager.Instance.currentPlayerId == 0){
             //maggiordomo
-            //mostra la password della porta + porta cojn password + posto dove cliccare per inserire password
-            passwordFields.SetActive(true);
-            passwordWall.SetActive(true);
+            //Devo vedere però che abbia anche indossato l'occhio meccanico...
+            if(InventoryManager.Instance.mechEye == true){
+                //mostra la password della porta + porta cojn password + posto dove cliccare per inserire password
+                passwordFields.SetActive(true);
+                passwordWall.SetActive(true);
+            }
         }else{
             Debug.Log("Not Butler");
         }
@@ -31,7 +34,7 @@ public class BossesDoorsScene : SceneLoader
             passwordFields.SetActive(false);
             passwordWall.SetActive(false);
         }else{
-            if(InventoryManager.Instance.Items.Contains(mechEye)){
+            if(InventoryManager.Instance.mechEye){
                 passwordFields.SetActive(true);
                 passwordWall.SetActive(true);
             }

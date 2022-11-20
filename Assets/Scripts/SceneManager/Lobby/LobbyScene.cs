@@ -8,6 +8,8 @@ public class LobbyScene : SceneLoader
     [SerializeField] private GameObject CleaningLady;
     [SerializeField] private GameObject fullCleaningLady;
     [SerializeField] private SceneData data;
+    [SerializeField] private Item book;
+    [SerializeField] private GameObject sceneBook;
 
     protected override void Start(){
         base.Start();
@@ -15,6 +17,9 @@ public class LobbyScene : SceneLoader
 
         if(data.cleaningLadyActive){
             Destroy(fullCleaningLady);
+        }
+        if(data.chefBook == true){
+            sceneBook.SetActive(false);
         }
     }
 
@@ -24,6 +29,9 @@ public class LobbyScene : SceneLoader
             if(CleaningLady.activeSelf == true){
                 data.cleaningLadyActive = true;
             }
+        }
+        if(InventoryManager.Instance.Items.Contains(book)){
+            data.chefBook = true;
         }
     }
     

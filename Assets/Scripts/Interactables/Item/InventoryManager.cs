@@ -11,6 +11,7 @@ public class InventoryManager : MonoBehaviour
     public List<Item> Items = new List<Item>();
 
     public bool mechEye = false; //set to true by butler so that I can see the pw on the walls.
+    public bool cutEye = false; //check if already Cut eye for butler..
 
     public Transform ItemContent; //where items are filled
     public GameObject InventoryItem;//the prefab of the item 

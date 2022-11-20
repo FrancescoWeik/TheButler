@@ -38,23 +38,21 @@ public class Dog : MonoBehaviour, IDropHandler
     }
 
     public void Start(){
+        currentAnim = "idleAngry";
         anim = GetComponent<Animator>();
         if(hasBeenFed){
-            currentAnim = "idleCalm";
             ChangeToCalmIdleState();
             //calmState
         }else{
-            currentAnim = "idleAngry";
             ChangeToAngryIdleState();
             //angryIdleState
         }
     }
 
     public void Update(){
+        //Debug.Log(hasBeenFed);
         if(hasBeenFed){
-            if(finishAnim){
-                ChangeToCalmIdleState();
-            }
+            ChangeToCalmIdleState();
         }else{
             if(finishAnim){
                 ChangeToAngryIdleState();

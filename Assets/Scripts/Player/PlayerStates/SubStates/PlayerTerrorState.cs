@@ -6,6 +6,7 @@ public class PlayerTerrorState : PlayerGroundedState
 {
     protected bool isIdleTimeOver;
     protected float idleTime;
+    public int facing;
 
     public PlayerTerrorState(Player player, PlayerStateMachine stateMachine, PlayerData playerData, string animBoolName) : base(player, stateMachine, playerData, animBoolName)
     {
@@ -24,6 +25,7 @@ public class PlayerTerrorState : PlayerGroundedState
         //player.SetVelocityX(playerData.terrorVelocity * -1);
         idleTime = playerData.terrorTime;
         player.SetTerrorActive();
+        facing = player.facingDirection;
     }
 
     public override void Exit()
@@ -35,8 +37,8 @@ public class PlayerTerrorState : PlayerGroundedState
     public override void LogicUpdate()
     {
         base.LogicUpdate();
-        player.CheckIfShouldFlip(-1);
-        player.SetVelocityX(playerData.movementVelocity * -1);
+        player.CheckIfShouldFlip(-facing);
+        player.SetVelocityX(playerData.movementVelocity * -facing);
         if(Time.time >= startTime + idleTime){
             isIdleTimeOver = true;
         }

@@ -40,7 +40,8 @@ public class Butler : Player, IDropHandler
             Debug.Log(text);
             switch(text){
                 case "Knife": 
-                    if(!alreadyCutEye){
+                    if(!alreadyCutEye && !InventoryManager.Instance.cutEye){
+                        InventoryManager.Instance.cutEye = true;
                         anim.runtimeAnimatorController = (RuntimeAnimatorController)noEyeAnimator;
                         playerData.currentController = (RuntimeAnimatorController)noEyeAnimator;
                         ChangeToCutEyeState();

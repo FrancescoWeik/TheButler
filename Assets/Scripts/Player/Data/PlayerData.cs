@@ -73,4 +73,12 @@ public class PlayerData : ScriptableObject
     [Header("TerrorState")]
     public float terrorVelocity = 20.0f;
     public float terrorTime = 3.0f;
+
+    public void ResetAll(){
+        ControllingData = false;
+    }
+
+    public void ResetAll(RuntimeAnimatorController ac){
+        currentController = ac;
+    }
 }

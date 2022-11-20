@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 0
   currentController: {fileID: 9100000, guid: 78fd7de5349178c4bac736d78bb87ac4, type: 2}
+  ControllingData: 0
   maxHealth: 6
   waitAfterHurtTime: 1
   gravityScale: 5

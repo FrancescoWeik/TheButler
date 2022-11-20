@@ -7,6 +7,7 @@ public class SceneData : ScriptableObject
 {
     [Header("Lobby")]
     public bool cleaningLadyActive = false;
+    public bool chefBook = false;
     [Header("LivingRoom")]
     [Header("Kitchen")]
     public bool gotKnife = false;
@@ -19,4 +20,8 @@ public class SceneData : ScriptableObject
     [Header("HouseScene")]
     public bool gaveFoto = false;
     public bool ropeObtained = false;
+
+    public void ResetAll(){
+        
+    }
 }
