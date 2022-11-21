@@ -23,4 +23,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/DoorsForBoss.unity
     guid: aeb6b8e2e65cd2e4eb9439d63176bbfb
+  - enabled: 1
+    path: Assets/Scenes/BossScene.unity
+    guid: 5841e26870e1f82488379530b68b9d07
   m_configObjects: {}

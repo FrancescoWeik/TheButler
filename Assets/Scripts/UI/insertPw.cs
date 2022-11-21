@@ -7,6 +7,8 @@ public class insertPw : MonoBehaviour
 {
     [SerializeField] InputField input;
     [SerializeField] private string rightPw;
+    [SerializeField] SceneLoader sceneManag;
+    [SerializeField] private string sceneToLoad;
 
     void OnEnable()
     {
@@ -26,12 +28,14 @@ public class insertPw : MonoBehaviour
         Debug.Log(value);
         if(value == rightPw){
             Debug.Log("WOAH! OPEN DOOR");
+            sceneManag.SaveSceneState();
+            GameManager.Instance.ChangeScene("otherTrigger", sceneToLoad);
         }else{
             Debug.Log("DOOR CLOSED");
         }
         //Call game manager change scene;
         GameManager.Instance.EnableSameCharacter();
-        Cursor.visible = false;
+        //Cursor.visible = false;
         gameObject.SetActive(false);
         Time.timeScale = 1f;
     }

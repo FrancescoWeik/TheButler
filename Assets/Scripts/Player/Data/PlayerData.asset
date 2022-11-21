@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: PlayerData
   m_EditorClassIdentifier: 
   id: 0
-  currentController: {fileID: 9100000, guid: 78fd7de5349178c4bac736d78bb87ac4, type: 2}
-  ControllingData: 0
+  currentController: {fileID: 22100000, guid: c42e16a859bd284428695cf49571e6d5, type: 2}
+  ControllingData: 1
   maxHealth: 6
   waitAfterHurtTime: 1
   gravityScale: 5

@@ -7,7 +7,7 @@ public class ChangeSceneDoor : MonoBehaviour, IPointerDownHandler
 {
     public string triggerName;
     public string sceneToLoad;
-    [SerializeField] SceneLoader sceneManag;
+    [SerializeField] protected SceneLoader sceneManag;
 
     public virtual void OnPointerDown(PointerEventData eventData){
         sceneManag.SaveSceneState();

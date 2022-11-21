@@ -6,10 +6,13 @@ using UnityEngine.EventSystems;
 public class WindowToGarden : ChangeSceneDoor
 {
     public DialogueTrigger trigger;
+    public BossesDoorsScene myScene;
     public override void OnPointerDown(PointerEventData eventData){
         if(GameManager.Instance.currentPlayerId == 2){
             //Cleaning Lady
-             trigger.TriggerDialogue();
+            if(!myScene.data.ropeOnWindow){
+                trigger.TriggerDialogue();
+            }
         }else{
             base.OnPointerDown(eventData);
         }

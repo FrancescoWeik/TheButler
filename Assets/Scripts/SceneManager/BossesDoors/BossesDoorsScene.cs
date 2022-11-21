@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BossesDoorsScene : SceneLoader
 {
-    [SerializeField] private SceneData data;
+    [SerializeField] public SceneData data;
     [SerializeField] private WindowRope windowRope;
     [SerializeField] private GameObject passwordFields;
     [SerializeField] private GameObject passwordWall;
