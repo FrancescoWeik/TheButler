@@ -21,9 +21,9 @@ public class GardenScene : SceneLoader
         }
         if(data.ropeOnWindow == true){
             window.GetComponent<SpriteRenderer>().sprite = openWindow;
-            window.GetComponent<ChangeSceneDoor>().enabled = true;
+            window.GetComponent<WindowToBoss>().enabled = true;
         }else{
-            window.GetComponent<ChangeSceneDoor>().enabled = false;
+            window.GetComponent<WindowToBoss>().enabled = false;
         }
     }
 

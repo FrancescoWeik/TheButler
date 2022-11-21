@@ -3872,6 +3872,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1239464472593126913, guid: d889e57cbbcf84b468d1e5cf375e563c, type: 3}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 2867043064261529657, guid: d889e57cbbcf84b468d1e5cf375e563c, type: 3}
       propertyPath: m_Colors.m_PressedColor.b
       value: 0.9568628
@@ -3984,5 +3988,13 @@ PrefabInstance:
       propertyPath: characters.Array.data[2]
       value: 
       objectReference: {fileID: 2688183540943889750, guid: f07ec7d834c392f43b476823ac9daf6c, type: 3}
+    - target: {fileID: 8860372712332028166, guid: d889e57cbbcf84b468d1e5cf375e563c, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: c76d2c3717ea8c3468b3ffe926b49dd2, type: 3}
+    - target: {fileID: 8860372712332028166, guid: d889e57cbbcf84b468d1e5cf375e563c, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d889e57cbbcf84b468d1e5cf375e563c, type: 3}

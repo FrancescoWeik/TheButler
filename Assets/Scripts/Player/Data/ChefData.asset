@@ -56,4 +56,4 @@ MonoBehaviour:
   launchRecovery: 0
   spriteBlinkingMiniDuration: 0.1
   terrorVelocity: 20
-  terrorTime: 3
+  terrorTime: 0.7

@@ -11,6 +11,7 @@ public class Butler : Player, IDropHandler
     private bool alreadyMechEye;
     public DialogueTrigger trigger;
     [SerializeField] Item eyeBall;
+    [SerializeField] Item mechEyeItem;
     public Dialogue dialogue;
     [SerializeField] protected RuntimeAnimatorController noEyeAnimator;
     [SerializeField] protected RuntimeAnimatorController mechEyeController;
@@ -66,6 +67,7 @@ public class Butler : Player, IDropHandler
                         anim.runtimeAnimatorController = (RuntimeAnimatorController)mechEyeController;
                         playerData.currentController = (RuntimeAnimatorController)mechEyeController;
                         InventoryManager.Instance.mechEye = true;
+                        InventoryManager.Instance.Remove(mechEyeItem);
                         alreadyMechEye = true;
                         //now show password...?
                     }else{

@@ -1799,9 +1799,10 @@ GameObject:
   m_Component:
   - component: {fileID: 2144338966}
   - component: {fileID: 2144338965}
-  - component: {fileID: 2144338967}
   - component: {fileID: 2144338969}
   - component: {fileID: 2144338968}
+  - component: {fileID: 2144338970}
+  - component: {fileID: 2144338967}
   m_Layer: 0
   m_Name: WindowBossAnim_0000_Frame-1
   m_TagString: Untagged
@@ -1883,12 +1884,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 2144338964}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 33515d3e1f25a8648bed949426dd8f8d, type: 3}
+  m_Script: {fileID: 11500000, guid: 7603a39141071e04d95e133e8823e069, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  triggerName: otherTrigger
-  sceneToLoad: DoorsForBoss
-  sceneManag: {fileID: 2047785796}
+  dialogue:
+    name: CleaningLady
+    sentences:
+    - I can't climb there!!!
 --- !u!61 &2144338968
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1936,3 +1938,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
+--- !u!114 &2144338970
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2144338964}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 893a952d3cb6d3644b63364ab6fe4f91, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerName: otherTrigger
+  sceneToLoad: DoorsForBoss
+  sceneManag: {fileID: 2047785796}
+  trigger: {fileID: 2144338967}

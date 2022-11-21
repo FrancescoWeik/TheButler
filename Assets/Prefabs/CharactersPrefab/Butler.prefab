@@ -391,6 +391,7 @@ MonoBehaviour:
   deathMenu: {fileID: 0}
   trigger: {fileID: 4085298922911146882}
   eyeBall: {fileID: 11400000, guid: f476d21b91746b5438fcaa3c481a991d, type: 2}
+  mechEyeItem: {fileID: 11400000, guid: f097832bdce344742b7384b5ed0ea66a, type: 2}
   dialogue:
     name: 
     sentences: []
