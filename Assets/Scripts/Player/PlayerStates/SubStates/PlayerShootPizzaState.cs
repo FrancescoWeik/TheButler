@@ -36,7 +36,8 @@ public class PlayerShootPizzaState : PlayerAbilityState
 
     public override void LogicUpdate()
     {
-        base.LogicUpdate();
+        //base.LogicUpdate();
+        Debug.Log("CANGURI");
 
     }
 

@@ -12,6 +12,10 @@ public class DialogueManager : MonoBehaviour
     public Text nameText;
     public Text dialogueText;
 
+    [SerializeField] private float waitTime = 5f;
+    private float startTime = 0f;
+    private bool lastDialogue;
+
     private Queue<string> sentences;
 
     /*public void Awake(){
@@ -31,9 +35,21 @@ public class DialogueManager : MonoBehaviour
         sentences = new Queue<string>();
     }
 
+    public void Update(){
+        if(lastDialogue){
+            startTime += Time.deltaTime;
+            if(startTime>waitTime){
+                startTime = 0f;
+                EndDialogue();
+            }
+            //startTime
+        }
+    }
+
     public void StartDialogue(Dialogue dialogue){
         animator.SetBool("isOpen", true);
         nameText.text = dialogue.name;
+        lastDialogue = false;
 
         sentences.Clear();
 
@@ -45,6 +61,10 @@ public class DialogueManager : MonoBehaviour
     }
 
     public void DisplayNextSentence(){
+        if(sentences.Count == 1){
+            lastDialogue = true;
+            startTime = 0f;
+        }
         if(sentences.Count == 0){
             EndDialogue();
             return;
@@ -55,6 +75,7 @@ public class DialogueManager : MonoBehaviour
     }
 
     void EndDialogue(){
+        startTime = 0f;
         animator.SetBool("isOpen", false);
         Debug.Log("end of conversation");
     }

@@ -74,8 +74,9 @@ public class PlayerInputHandler : MonoBehaviour
     }
 
     public void OnMenuInput(InputAction.CallbackContext context){
+        //Debug.Log("WEEEEEEEEEE");
         if(context.started){
-            //pauseMenu.SetActive(true);
+            PauseMenuHandler.Instance.ActivateMenu();
         }
     }
 

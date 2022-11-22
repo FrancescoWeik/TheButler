@@ -10,6 +10,7 @@ public class BossScript : MonoBehaviour, IDropHandler
     public DialogueTrigger trigger;
     public Dialogue dialogue;
     private Animator anim;
+    [SerializeField] private GameObject endScreen;
 
     public void Start(){
         anim = GetComponent<Animator>();
@@ -44,5 +45,6 @@ public class BossScript : MonoBehaviour, IDropHandler
 
     public void FinishGame(){
         Debug.Log("FinishedGame");
+        endScreen.SetActive(true);
     }
 }
