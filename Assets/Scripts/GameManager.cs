@@ -22,6 +22,9 @@ public class GameManager : MonoBehaviour
     public Transform spawnPosition;
     public string triggerName;
 
+    public AudioSource audioSource;
+    public AudioClip doorSound;
+
 
     // Start is called before the first frame update
     void Start()
@@ -216,6 +219,12 @@ public class GameManager : MonoBehaviour
         controllingCharacter.name = characters[currentPlayerId].name;
         controllingCharacter.GetComponent<Player>().setControllingData(true);
         Debug.Log( controllingCharacter.name);
+    }
+
+    public void PlaySoundScene(bool fromDoor){
+        if(fromDoor){
+            audioSource.PlayOneShot(doorSound);
+        }
     }
     
 }

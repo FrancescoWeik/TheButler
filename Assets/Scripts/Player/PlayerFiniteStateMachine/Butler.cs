@@ -15,6 +15,7 @@ public class Butler : Player, IDropHandler
     public Dialogue dialogue;
     [SerializeField] protected RuntimeAnimatorController noEyeAnimator;
     [SerializeField] protected RuntimeAnimatorController mechEyeController;
+    [SerializeField] protected AudioSource audioSource;
 
 
 
@@ -25,6 +26,7 @@ public class Butler : Player, IDropHandler
 
     protected override void Start(){
         base.Start();
+        audioSource = GetComponent<AudioSource>();
         anim.runtimeAnimatorController = (RuntimeAnimatorController)playerData.currentController;
     }
 
@@ -89,5 +91,9 @@ public class Butler : Player, IDropHandler
         Debug.Log("RECEIVuing...");
         Debug.Log(item);
         InventoryManager.Instance.Add(item);
+    }
+
+    public void PlayEyeSound(){
+        audioSource.PlayOneShot(playerData.eyeSound);
     }
 }

@@ -33,6 +33,7 @@ public class PlayerData : ScriptableObject
     public AudioClip[] poundActivationSounds;
     public AudioClip outOfAmmoSound;
     public AudioClip stepSound;
+    public AudioClip eyeSound;
     [System.NonSerialized] public int whichHurtSound;
 
     [Header("MoveState")]

@@ -18,6 +18,7 @@ public class KitchenScene : SceneLoader
         food = data.foodObtained;
         Instance = this;
         if(data.ovenOpened){
+            hitButton.SetAlreadyHit();
             hitButton.MessageButtonHit();
             door.OpenDoor();
         }
@@ -29,6 +30,7 @@ public class KitchenScene : SceneLoader
         }
         if(data.foodObtained){
             foodReleaser.alreadyObtained = true;
+            foodButton.SetAlreadyHit();
             foodButton.MessageButtonHit();
         }
     }

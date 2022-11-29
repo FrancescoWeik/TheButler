@@ -14,6 +14,7 @@ public class BodyGuardDoor : clickItemToTrigger
             if(GameManager.Instance.currentPlayerId==2){
                 //è la cleaning lady
                 sceneManag.SaveSceneState();
+                GameManager.Instance.PlaySoundScene(true);
                 GameManager.Instance.ChangeScene(triggerName, sceneToLoad);
             }else{
                 base.OnPointerDown(eventData);

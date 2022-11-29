@@ -9,6 +9,7 @@ public class ItemPickup : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
 
     void Pickup(){
         InventoryManager.Instance.Add(item);
+        InventoryManager.Instance.PlayPickSound();
         Destroy(gameObject);
     }
 

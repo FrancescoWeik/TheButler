@@ -49,6 +49,7 @@ public class NonActiveCharacter :  MonoBehaviour, IDropHandler
         Debug.Log("Entered Function");
         if(isBodyGuard){
             mechEye.SetActive(false);
+            InventoryManager.Instance.pickedMechEye = true;
             activeCharacter.SetActive(true);
             //activeUICharacter.SetActive(true);
             gameObject.SetActive(false);

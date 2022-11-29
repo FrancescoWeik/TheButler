@@ -8,6 +8,7 @@ public class InventoryManager : MonoBehaviour
     public static InventoryManager Instance;
     public bool pickedSteakUp;
     public bool pickedRope;
+    public bool pickedMechEye;
     public List<Item> Items = new List<Item>();
 
     public bool mechEye = false; //set to true by butler so that I can see the pw on the walls.
@@ -15,6 +16,8 @@ public class InventoryManager : MonoBehaviour
 
     public Transform ItemContent; //where items are filled
     public GameObject InventoryItem;//the prefab of the item 
+    public AudioSource audioSource;
+    public AudioClip audioClip;
 
     /*private void Awake(){
         Instance = this;
@@ -71,5 +74,9 @@ public class InventoryManager : MonoBehaviour
             itemName.text = item.itemName;
             itemIcon.sprite = item.icon;
         }
+    }
+
+    public void PlayPickSound(){
+        audioSource.PlayOneShot(audioClip);
     }
 }

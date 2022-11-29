@@ -8,6 +8,7 @@ public class SceneData : ScriptableObject
     [Header("Lobby")]
     public bool cleaningLadyActive = false;
     public bool chefBook = false;
+    public bool bodyguardMechEye = false;
     [Header("LivingRoom")]
     [Header("Kitchen")]
     public bool gotKnife = false;

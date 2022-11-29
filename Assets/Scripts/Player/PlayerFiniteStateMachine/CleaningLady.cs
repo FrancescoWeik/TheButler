@@ -4,10 +4,12 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI; 
 
-public class CleaningLady : Player, IDropHandler{
+public class CleaningLady : Player, IDropHandler,IPointerDownHandler{
 
     public DialogueTrigger trigger;
     public Dialogue dialogue;
+    [SerializeField] AudioClip audioClip;
+
 
     public void OnDrop(PointerEventData eventData){
         Debug.Log("Dropping...");
@@ -24,5 +26,13 @@ public class CleaningLady : Player, IDropHandler{
             }
         }
 
+    }
+
+    public void OnPointerDown(PointerEventData eventData){
+        if(eventData.button == PointerEventData.InputButton.Left){
+            if(!audioSource.isPlaying){
+                    audioSource.PlayOneShot(audioClip);
+            }
+        }
     }
 }

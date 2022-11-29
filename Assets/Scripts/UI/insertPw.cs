@@ -29,6 +29,7 @@ public class insertPw : MonoBehaviour
         if(value == rightPw){
             Debug.Log("WOAH! OPEN DOOR");
             sceneManag.SaveSceneState();
+            GameManager.Instance.PlaySoundScene(true);
             GameManager.Instance.ChangeScene("otherTrigger", sceneToLoad);
         }else{
             Debug.Log("DOOR CLOSED");

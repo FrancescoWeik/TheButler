@@ -4,11 +4,12 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI; 
 
-public class Chef : Player, IDropHandler{
+public class Chef : Player, IDropHandler,IPointerDownHandler{
     [SerializeField] private GameObject checkTrigger;
 
     public DialogueTrigger trigger;
     public Dialogue dialogue;
+    [SerializeField] AudioClip audioClip;
 
     protected override void Update(){
         if(playerData.ControllingData && checkTrigger.active){
@@ -42,5 +43,11 @@ public class Chef : Player, IDropHandler{
             }
         }
 
+    }
+
+    public void OnPointerDown(PointerEventData eventData){
+        if(eventData.button == PointerEventData.InputButton.Left){
+            audioSource.PlayOneShot(audioClip);
+        }
     }
 }

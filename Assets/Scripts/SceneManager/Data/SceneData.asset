@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cleaningLadyActive: 0
   chefBook: 0
+  bodyguardMechEye: 0
   gotKnife: 0
   ovenOpened: 0
   chefActive: 0

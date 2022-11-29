@@ -11,6 +11,9 @@ public class BossScript : MonoBehaviour, IDropHandler
     public Dialogue dialogue;
     private Animator anim;
     [SerializeField] private GameObject endScreen;
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip audioClip;
+    [SerializeField] private AudioClip angryAudio;
 
     public void Start(){
         anim = GetComponent<Animator>();
@@ -24,11 +27,16 @@ public class BossScript : MonoBehaviour, IDropHandler
             string text = itemName.text;
             Debug.Log(text);
             if(text == itemNeeded.itemName){
+                audioSource.PlayOneShot(audioClip);
                 //EndGame
                 Debug.Log("congratulations");
                 InventoryManager.Instance.Remove(itemNeeded);
                 ChangeToDeath();
             }else{
+                if(!audioSource.isPlaying){
+                    audioSource.PlayOneShot(angryAudio);
+                }
+                audioSource.PlayOneShot(angryAudio);
                 dialogue.name = "Boss";
                 dialogue.sentences = new string[1];
                 dialogue.sentences[0] = "LEAVE ME ALONE!";

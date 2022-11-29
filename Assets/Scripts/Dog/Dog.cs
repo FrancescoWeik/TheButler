@@ -15,6 +15,8 @@ public class Dog : MonoBehaviour, IDropHandler
     private bool finishAnim = false;
 
     [SerializeField] private Item itemNeeded;
+    [SerializeField] private AudioClip barkingSound;
+    [SerializeField] protected AudioSource audioSource;
 
     
     // Start is called before the first frame update
@@ -38,6 +40,7 @@ public class Dog : MonoBehaviour, IDropHandler
     }
 
     public void Start(){
+        audioSource = GetComponent<AudioSource>();
         currentAnim = "idleAngry";
         anim = GetComponent<Animator>();
         if(hasBeenFed){
@@ -82,6 +85,10 @@ public class Dog : MonoBehaviour, IDropHandler
 
     public void hasFinishAnim(){
         finishAnim=true;
+    }
+
+    public void PlayBarkSound(){
+        audioSource.PlayOneShot(barkingSound);
     }
 
 

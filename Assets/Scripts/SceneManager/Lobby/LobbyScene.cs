@@ -10,6 +10,7 @@ public class LobbyScene : SceneLoader
     [SerializeField] private SceneData data;
     [SerializeField] private Item book;
     [SerializeField] private GameObject sceneBook;
+    [SerializeField] private GameObject mechEye;
 
     protected override void Start(){
         base.Start();
@@ -20,6 +21,9 @@ public class LobbyScene : SceneLoader
         }
         if(data.chefBook == true){
             sceneBook.SetActive(false);
+        }
+        if(data.bodyguardMechEye){
+            mechEye.SetActive(false);
         }
     }
 
@@ -32,6 +36,9 @@ public class LobbyScene : SceneLoader
         }
         if(InventoryManager.Instance.Items.Contains(book)){
             data.chefBook = true;
+        }
+        if(InventoryManager.Instance.pickedMechEye){
+            data.bodyguardMechEye = true;
         }
     }
     

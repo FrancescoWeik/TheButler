@@ -7,6 +7,8 @@ using UnityEngine.UI;
 public class WindowUI : MonoBehaviour, IDropHandler
 {
     [SerializeField] private Item foto;
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip audioClip;
     public bool alreadyGiven;
     public void OnDrop(PointerEventData eventData){
         Debug.Log("Dropping...");
@@ -17,6 +19,7 @@ public class WindowUI : MonoBehaviour, IDropHandler
                 case("Camera"):
                     //make flash
                     if(!alreadyGiven){
+                        audioSource.PlayOneShot(audioClip);
                         InventoryManager.Instance.Add(foto);
                         alreadyGiven = true;
                         Debug.Log("FOTOOOOOOOO"); break;
