@@ -25,6 +25,8 @@ public class GameManager : MonoBehaviour
     public AudioSource audioSource;
     public AudioClip doorSound;
 
+    //public Texture2D cursorArrow;
+
 
     // Start is called before the first frame update
     void Start()
@@ -44,6 +46,8 @@ public class GameManager : MonoBehaviour
         controllingCharacter = Instantiate(characters[currentPlayerId], spawnPosition.position, Quaternion.identity) as GameObject;
         controllingCharacter.name = characters[currentPlayerId].name;
         virtualCamera.Follow = controllingCharacter.transform;
+        
+        //Cursor.SetCursor(cursorArrow, Vector2.zero, CursorMode.ForceSoftware);
     }
 
     void OnLevelWasLoaded(){
