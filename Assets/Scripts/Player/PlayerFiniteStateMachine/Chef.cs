@@ -47,7 +47,9 @@ public class Chef : Player, IDropHandler,IPointerDownHandler{
 
     public void OnPointerDown(PointerEventData eventData){
         if(eventData.button == PointerEventData.InputButton.Left){
-            audioSource.PlayOneShot(audioClip);
+            if(!audioSource.isPlaying){
+                audioSource.PlayOneShot(audioClip);
+            }
         }
     }
 }
