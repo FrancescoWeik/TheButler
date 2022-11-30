@@ -133,10 +133,6 @@ public class Player : MonoBehaviour
     protected virtual void Update(){
         currentVelocity = rb.velocity;
 
-        if(startBlinking){
-            StartBlinking();
-        }
-
         stateMachine.currentState.LogicUpdate();
     }
 
@@ -271,102 +267,6 @@ public class Player : MonoBehaviour
         workspace.Set(velocityX,velocityY);
         rb.velocity = workspace;
         currentVelocity = workspace;
-    }
-
-    private void StartBlinking(){
-        spriteBlinkingTotalTimer += Time.deltaTime;
-        if(spriteBlinkingTotalTimer >= playerData.waitAfterHurtTime){
-            startBlinking = false;
-            spriteBlinkingTotalTimer = 0.0f;
-            SetNormalSprite();
-            return;
-        } 
-        spriteBlinkingTimer += Time.deltaTime;
-        if(spriteBlinkingTimer >= playerData.spriteBlinkingMiniDuration){
-            spriteBlinkingTimer = 0.0f;
-            if (normalSprite){
-                SetWhiteSprite();  //make changes
-            }else{
-                SetNormalSprite();   //make changes
-            }
-        }
-    }
-
-    private void HurtEffect()
-    {
-        //GameManager.Instance.audioSource.PlayOneShot(hurtSound);
-        audioSource.PlayOneShot(playerData.hurtSound);
-        //StartCoroutine(FreezeFrameEffect()); -----> tolto perchè da problemi se muoio, come sistemare...?
-        //GameManager.Instance.audioSource.PlayOneShot(hurtSounds[whichHurtSound]);
-        audioSource.PlayOneShot(playerData.hurtSounds[playerData.whichHurtSound]);
-
-        if (playerData.whichHurtSound >= playerData.hurtSounds.Length - 1)
-        {
-            playerData.whichHurtSound = 0;
-        }
-        else
-        {
-            playerData.whichHurtSound++;
-        }
-        cameraEffects.Shake(100, 1f);
-    }
-
-    public IEnumerator FreezeFrameEffect(float length = .007f)
-    {
-        Time.timeScale = .1f;
-        yield return new WaitForSeconds(length);
-        Time.timeScale = 1f;
-    }
-
-    public void Die()
-    {
-        Debug.Log("WAAAAAAAAAAA");
-        deathMenu.SetActive(true);
-        gameObject.SetActive(false);
-        //lostTextObject.SetActive(true);
-        //lostButton.SetActive(true);
-        //Debug.Log("Dead");
-    }
-
-    public void PlayStepSound()
-    {
-        //Play a step sound at a random pitch between two floats, while also increasing the volume based on the Horizontal axis
-        audioSource.pitch = (Random.Range(1f, 1.3f));
-        audioSource.PlayOneShot(playerData.stepSound, Mathf.Abs(0.7f));
-    }
-
-    public void PlayJumpSound()
-    {
-        audioSource.pitch = (Random.Range(1f, 1f));
-        audioSource.PlayOneShot(playerData.jumpSound, .1f);
-    }
-    
-    public void LandEffect()
-    {
-        jumpParticles.Emit(1);
-        audioSource.pitch = (Random.Range(0.6f, 1f));
-        audioSource.PlayOneShot(playerData.landSound);
-    }
-
-    public void JumpEffect()
-    {
-        if(CheckIfGrounded()){
-            jumpParticles.Emit(1);
-            audioSource.pitch = (Random.Range(1f, 1.5f));
-            audioSource.volume = 0.7f;
-            audioSource.PlayOneShot(playerData.landSound);
-        }
-
-    }
-
-    public void PunchEffect()
-    {
-        audioSource.PlayOneShot(playerData.punchSound);
-        //cameraEffects.Shake(100, 1f);
-    }
-
-     public void PoundEffect()
-    {
     }
 
     #endregion

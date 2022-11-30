@@ -24,8 +24,6 @@ public class PlayerJumpState : PlayerAbilityState
         isAbilityDone = true;
         amountOfJumpsLeft--;
         player.inAirState.SetIsJumping();
-        player.PlayJumpSound();
-        player.JumpEffect();
     }
 
     public override void Exit()
